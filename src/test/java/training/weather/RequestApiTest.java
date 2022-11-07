@@ -6,25 +6,27 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class RequestTest {
-    Request request = new Request();
+public class RequestApiTest {
+    RequestApi request = new RequestApi();
 
     @Test
     public void getResponseGeoCode() throws IOException {
-        JSONObject response = request.getResponseGeoCode("Madrid");
+        String response = request.getResponseGeoCode("Madrid");
         Assert.assertNotEquals(null, response);
     }
 
     @Test
     public void getLongt() throws IOException {
-        JSONObject response = request.getResponseGeoCode("Madrid");
-        Assert.assertEquals(response.get("longt").toString(), "-3.67930");
+        String response = request.getResponseGeoCode("Madrid");
+        JSONObject objectResponse = new JSONObject(response);
+        Assert.assertEquals(objectResponse.get("longt").toString(), "-3.67930");
     }
 
     @Test
     public void getLatt() throws IOException {
-        JSONObject response = request.getResponseGeoCode("Madrid");
-        Assert.assertEquals(response.get("latt").toString(), "40.42955");
+        String response = request.getResponseGeoCode("Madrid");
+        JSONObject objectResponse = new JSONObject(response);
+        Assert.assertEquals(objectResponse.get("latt").toString(), "40.42955");
     }
 
     @Test
@@ -33,3 +35,5 @@ public class RequestTest {
         Assert.assertNotEquals(null, response);
     }
 }
+
+
