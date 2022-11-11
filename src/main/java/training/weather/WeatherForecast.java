@@ -10,7 +10,7 @@ import org.json.JSONObject;
 public class WeatherForecast {
 
 	public static String getCityWeather(String city, Date datetime) throws IOException {
- 		if (datetime == null) {
+		if (datetime == null) {
 			datetime = new Date();
 		}
 
@@ -20,23 +20,25 @@ public class WeatherForecast {
 			JSONArray dailyResults = object.getJSONArray("time");
 			JSONArray weatherCodeResults = object.getJSONArray("weathercode");
 
-			for (int i = 0; i < dailyResults.length(); i++) {
-				if (
-						new SimpleDateFormat("yyyy-MM-dd")
-								.format(datetime)
-								.equals(dailyResults.get(i).toString()))
-				{
-					return ForecastEnum.getEnumByCode((int) weatherCodeResults.get(i)).getDescription();
-				}
-			}
+			int code = Integer.parseInt(initMap(dailyResults, weatherCodeResults).get(new SimpleDateFormat("yyyy-MM-dd").format(datetime)));
+
+			return ForecastEnum.getEnumByCode((code)).getDescription();
 		}
 		return "";
 	}
+
 	private static JSONObject getJsonObject(String city) throws IOException {
 		RequestApi request = new RequestApi();
 		JSONObject objectResponse = new JSONObject(request.getResponseGeoCode(city));
 		JSONObject object = new JSONObject(request.getResponseForecast(objectResponse.get("longt").toString(), objectResponse.get("latt").toString())).getJSONObject("daily");
 
 		return object;
+	}
+
+	private static Map<String, String> initMap(JSONArray dailyResults, JSONArray weatherCodeResults) throws IOException {
+		Map<String, String> map = new HashMap<>();
+		for (int i = 0; i < dailyResults.length(); i++)
+			map.put(dailyResults.get(i).toString(), weatherCodeResults.get(i).toString());
+		return map;
 	}
 }
