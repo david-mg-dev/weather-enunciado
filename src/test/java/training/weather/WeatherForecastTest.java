@@ -19,8 +19,8 @@ public class WeatherForecastTest {
 
 	@Test
 	public void IfDateBefore() throws IOException {
-		String forecast = weatherForecast.getCityWeather("Madrid", LocalDate.of(2022, 11, 15));
-		Assert.assertEquals("hola", forecast);
+		String forecast = weatherForecast.getCityWeather("Madrid", LocalDate.of(2000,01,01));
+		Assert.assertEquals("", forecast);
 	}
 
 	@Test
