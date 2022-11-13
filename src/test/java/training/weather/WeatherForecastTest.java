@@ -2,6 +2,7 @@ package training.weather;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.Optional;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.*;
@@ -24,7 +25,7 @@ public class WeatherForecastTest {
 
 	@Test
 	public void IfDatetimeIsNull() throws IOException {
-		String forecast = weatherForecast.getCityWeather("Madrid", null);
-		Assert.assertFalse(forecast.isEmpty());
+		Optional<String> opt = Optional.of(WeatherForecast.getCityWeather("Madrid", null));
+		Assert.assertTrue(opt.isPresent());
 	}
 }
