@@ -1,7 +1,7 @@
 package training.weather;
 
 import java.io.IOException;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Optional;
 
 import org.junit.Assert;
@@ -12,15 +12,15 @@ public class WeatherForecastTest {
 
 	@Test
 	public void getCityWeatherTest() throws IOException {
-		String forecast = weatherForecast.getCityWeather("Madrid", new Date());
+		String forecast = weatherForecast.getCityWeather("Madrid", LocalDate.now());
 		Assert.assertEquals(ForecastEnum.getEnumByCode(2).getDescription(), "Partly cloudy");
 		Assert.assertFalse(forecast.isEmpty());
 	}
 
 	@Test
 	public void IfDateBefore() throws IOException {
-		String forecast = weatherForecast.getCityWeather("Madrid", new Date(2000-01-01));
-		Assert.assertEquals("", forecast);
+		String forecast = weatherForecast.getCityWeather("Madrid", LocalDate.of(2022, 11, 15));
+		Assert.assertEquals("hola", forecast);
 	}
 
 	@Test
