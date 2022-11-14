@@ -2,7 +2,7 @@ package training.weather;
 
 import org.json.JSONObject;
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.io.IOException;
 

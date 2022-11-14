@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 import org.junit.Assert;
-import org.junit.jupiter.api.*;
+import org.junit.Test;
 
 public class WeatherForecastTest {
 	WeatherForecast weatherForecast;
