@@ -26,10 +26,12 @@ Para ello se pueden realizar múltiples modificaciones siempre que se mantenga e
 
 La solución debería contener un fichero README donde se respondan estas preguntas:
 - ¿Qué has empezado implementando y por qué?
+Voy a utilizar la metodoloía TDD así que lo primero que voy a implementar son los TEST con todas las funcionalidades que se esperan. En nuestro caso ya tenemos implementado una clase con un método, así que en base a la funcionalidad de dicho metodo  vamos a realizar todos los test unitarios que consideramos necesarios, para ello crearemos clases y métodos haciendo uso de la librería JUnit y Maven para la ejecución de los diferentes Test.
 - ¿Qué problemas te has encontrado al implementar los tests y cómo los has solventado?
 - ¿Qué componentes has creado y por qué?
 - Si has utilizado dependencias externas, ¿por qué has escogido esas dependencias?
 - ¿Has utilizado  streams, lambdas y optionals de Java 8? ¿Qué te parece la programación funcional?
+Conozco la programación funcional de forma superficial y actualmente estoy en fase de aprendizaje, la considero como un buen recurso para poder utilizarla en diferentes proyectos ya que considero que se puede realizar un código mas compactos ahorrando líneas de código y que favorece a la hora de testear el código.
 - ¿Qué piensas del rendimiento de la aplicación? 
 - ¿Qué harías para mejorar el rendimiento si esta aplicación fuera a recibir al menos 100 peticiones por segundo?
 - ¿Cuánto tiempo has invertido para implementar la solución? 
